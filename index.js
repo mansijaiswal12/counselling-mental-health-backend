@@ -6,7 +6,6 @@ const ContactUsmodel = require("./model/contactForm");
 const FeedbackModel = require("./model/feedbackForm");
 
 const server = express();
-const port = process.env.PORT || 8080;
 const mongodbUri = process.env.MONGODB_URI;
 
 server.use(express.json());
@@ -58,6 +57,8 @@ server.post("/feedback", async (req, res) => {
     res.status(500).json("Internal server Error");
   }
 });
+
+const port = process.env.PORT || 8080;
 
 server.listen(port, () => {
   console.log(`server running on port http://localhost:${port}`);
